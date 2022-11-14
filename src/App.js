@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import GoogleSheetsProvider from 'react-db-google-sheets';
+import { withGoogleSheets } from 'react-db-google-sheets';
 
 function App() {
   return (
+    <GoogleSheetsProvider>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,6 +22,7 @@ function App() {
         </a>
       </header>
     </div>
+    </GoogleSheetsProvider>
   );
 }
 
