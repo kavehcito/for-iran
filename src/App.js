@@ -1,29 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
 import GoogleSheetsProvider from 'react-db-google-sheets';
-import { withGoogleSheets } from 'react-db-google-sheets';
+import Portraits from './Portraits.js'
+import { createContext, useState } from 'react';
+
+
+
+
 
 function App() {
+  const [db, setDb] = useState(null);
+  const context = {
+    language: 'en',
+    db: null,
+    setDb: (newDb) => setDb(newDb)
+  }
+  const AppContext = createContext(context)
   return (
     <GoogleSheetsProvider>
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <AppContext.Provider>
+        <div className="App">
+          <Portraits />
+        </div>
+      </AppContext.Provider >
     </GoogleSheetsProvider>
+
   );
 }
 
 export default App;
+
+

@@ -1,0 +1,52 @@
+.portraits {
+    display:flex;
+    flex-direction: column;
+
+}
+
+.portrait-tile {
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:600px;
+    margin-bottom:1em;
+}
+.column {
+    width:25%;
+    overflow: scroll;
+}
+.portrait-image {
+    width:50%;
+    height:100%;
+    display: flex;;
+}
+.portrait-image img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+@media screen and (orientation: portrait)  {
+    .portrait-tile {
+        display:flex;
+        flex-direction:column-reverse;
+        height:100%;
+    }
+    .column {
+        width:100%;
+        overflow: scroll;
+        z-index: 1;
+    }
+    .portrait-image {
+        z-index: 0;
+        height:100%;
+        display: flex;
+        width:100%;
+    }
+    .portrait-image img {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+    }
+    
+}
